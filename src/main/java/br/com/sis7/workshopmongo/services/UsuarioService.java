@@ -39,6 +39,17 @@ public class UsuarioService {
 		
 	}
 	
+	public Usuario update(Usuario usuario) {
+		Usuario usuarioAtualizado = usuarioRepository.findOne(usuario.getId());
+		updateData(usuarioAtualizado, usuario);
+		return usuarioRepository.save(usuarioAtualizado);
+	}
+	
+	private void updateData(Usuario usuarioAtualizado, Usuario usuario) {
+		usuarioAtualizado.setNome(usuario.getNome());
+		usuarioAtualizado.setEmail(usuario.getEmail());
+	}
+
 	public Usuario fromDTO(UsuarioDTO usuarioDto) {
 		return new Usuario(usuarioDto.getId(), usuarioDto.getNome(), usuarioDto.getEmail());
 	}
