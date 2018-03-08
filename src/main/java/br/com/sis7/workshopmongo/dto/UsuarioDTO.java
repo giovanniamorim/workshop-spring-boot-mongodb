@@ -20,6 +20,7 @@ public class UsuarioDTO implements Serializable{
 		nome = usuario.getNome();
 		email = usuario.getEmail();
 	}
+	
 
 	public String getId() {
 		return id;
