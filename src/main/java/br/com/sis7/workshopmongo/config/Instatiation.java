@@ -44,6 +44,9 @@ public class Instatiation implements CommandLineRunner{
 		
 		usuarioRepository.save(Arrays.asList(maria, alex, bob));
 		postRepository.save(Arrays.asList(post1, post2));
+		
+		maria.getPosts().addAll(Arrays.asList(post1, post2));
+		usuarioRepository.save(maria);
 
 		
 	}
